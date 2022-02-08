@@ -1,0 +1,11 @@
+
+maven and npm are both build tools
+Maven           npm         yarn        
+pom.xml         package.json
+
+meta-data       meta-data
+dependencies    dependencies
+build steps     scripts
+
+
+meta-data (java version, name of artifacts, mvn version etc)
