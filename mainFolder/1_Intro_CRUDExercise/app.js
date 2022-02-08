@@ -19,7 +19,7 @@ app.get("/beers", (req, res) => {
     res.send(beerRepo);
 });
 
-app.get("/beers/:beerId", (req, res) => { // check if found, else send other response
+app.get("/beers/:beerId", (req, res) => {
     const beerId = parseInt(req.params.beerId);
     let body = {};
     beerRepo.forEach(beer => {
