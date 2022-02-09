@@ -66,13 +66,10 @@ app.patch("/beers/:beerId/", (req, res) => {
 app.delete("/beers/:beerId", (req, res) => {
     const beerId = parseInt(req.params.beerId);
     let body = {};
-    let index; // could also have set this to -1 and checked for !== -1
-    for(let i = 0; i < beerRepo.length; i++) {
-        if(beerRepo[i].id === beerId) {
-            index = i;
-        }
-    }
-    if(index !== undefined) 
+    const index = beerRepo.findIndex(beer => {
+        return beer.id === beerId;
+    });
+    if(index !== -1) 
     {
         body = beerRepo[index];
         beerRepo.splice(index,1);
