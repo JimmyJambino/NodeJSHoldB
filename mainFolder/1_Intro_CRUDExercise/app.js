@@ -19,6 +19,8 @@ app.get("/beers", (req, res) => {
     res.send(beerRepo);
 });
 
+
+// try to use beers.find(predicate)
 app.get("/beers/:beerId", (req, res) => {
     const beerId = parseInt(req.params.beerId);
     let body = {};
@@ -76,5 +78,6 @@ app.delete("/beers/:beerId", (req, res) => {
     }
     res.send(body);
 });
+
 
 app.listen(8080);

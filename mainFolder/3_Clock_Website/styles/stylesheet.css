@@ -1,0 +1,13 @@
+.gridSpace {
+    grid-row: 1/3;
+}
+
+.container {
+    display: grid;
+    size: 100px;
+    background-color: aqua;
+}
+
+#page-content {
+    background-color: blue;
+}
