@@ -8,23 +8,26 @@
 </head>
 <body>
     <div id="page-content">
-        <div id="container" class="container" ></div>   
-        <div id="clock1"></div>
+        <div id="container" class="container">
+            <div id="clock"></div>
+        </div>   
     </div>
     
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
     <script>
-        const screenHeight = window.screen.availHeight;
-        const screenWidth = window.screen.availWidth;
-        const clock1 = document.getElementById("clock1");
-        clock1.style.width = "200px";
-        //clock1.style.maxHeight = "20px";
-        clock1.style.fontSize = "40px";
-        clock1.style.paddingLeft = "" + (screenWidth-200)/2 + "px";
-        clock1.style.paddingTop = "" + (screenHeight-40)/2 + "px";
-        
-        setInterval(()=> {
-            //console.log("hello world")
-        },1000)
+        const height = window.screen.availHeight;
+        document.getElementById("container").style="min-height:"+height/2+"px";
+        const clock = document.getElementById("clock");
+        clock.style.width = "250px";
+        clock.style.fontSize = "80px";
+        let angle = 0;
 
         setInterval(()=> {
             const date = new Date();
@@ -32,7 +35,10 @@
             const min = date.getMinutes();
             const sec = date.getSeconds();
             const ms = date.getMilliseconds();
-            clock1.innerText = hours + ":" + min + ":" + sec + ":" + ms;
+            clock.innerText = hours + ":" + min + ":" + sec;
+            clock.style.transform="rotate("+angle+"deg)";
+            angle+=1;
+            angle = angle % 360
         },10)
 
     </script> 
