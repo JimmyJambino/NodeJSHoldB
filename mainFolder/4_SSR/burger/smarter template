@@ -1,0 +1,2 @@
+define function that takes html body as argument
+the function wraps the body with proper html as a template, and includes the nav bar.

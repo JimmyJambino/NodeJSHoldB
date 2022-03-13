@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./frontpage/frontpage.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dinosoooource</h1>
+
+    <duv>
+        <h3>Amount of cool dinosaurs</h3>
+        <p id="cool-dinosaurs"></p>
+    </duv>
+    <script src="./frontpage/frontpage.js"></script>
+    <script>
+        fetch("/calculatecooldinosaurs").then(res => res.json().then(data => { // since it is the same origin we don't need the first part. res.json() converts it to json from bytestream.
+            document.getElementById("cool-dinosaurs").innerText = data.data;
+        }))
+        setTimeout(() => {
+           // window.location.href = "/bored" // Takes us to the activities.html because our endpoint is /bored
+        }, 2000)
+    </script>
+</body>
+</html>

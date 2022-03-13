@@ -22,7 +22,7 @@ app.get("/beers", (req, res) => {
 
 // try to use beers.find(predicate)
 app.get("/beers/:beerId", (req, res) => {
-    const beerId = parseInt(req.params.beerId);
+    const beerId = parseInt(req.params.beerId); // Number(number) rather than parseInt(number) will return NaN if number isn't a valid object. parseInt() will return as much as possible.
     let body = {};
     beerRepo.forEach(beer => {
         if(beer.id === beerId) {
@@ -54,7 +54,7 @@ app.put("/beers/:beerId/", (req, res) => {
 app.patch("/beers/:beerId/", (req, res) => {
     const beerId = parseInt(req.params.beerId);
     let body = {};
-    beerRepo.forEach(beer => {
+    beerRepo.forEach(beer => { // use the spread operator instead to solve this.
         if(beer.id === beerId) {
             if(beer.name !== req.body.name && req.body.name !== undefined) {
                 beer.name = req.body.name;
@@ -79,5 +79,6 @@ app.delete("/beers/:beerId", (req, res) => {
     res.send(body);
 });
 
+// req.params are the same as pathvariable
 
 app.listen(8080);
