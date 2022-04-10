@@ -1,0 +1,22 @@
+mongodb is a document database, non-relational
+watch paradigm video
+we can just give json to mongodb and save it, and retrieve it as well.
+^works really nice with web servers that understand json (many, like in nodejs)
+
+jsonSchema vs ODM
+
+mongoDB keywords: db.<table>.keyword() ==> db.tutorials.insert({bla bla}) ==> db.tutorials.insert({"name": "jimmy", "id": 2})
+C - insert() ==> (there is no concept of primary key, so it needs to be handled by the programmer in the code.)
+R - find() ==> all
+    find({channel: "nameX"}) finds rows with the value nameX
+U - update({where}, {what}) ==>  update({channelName: "How to Basic"}, {"viewCounter: 10000}) ==> replaces channelName with viewCounter
+    update({where}, {$set: {what}}) ==> ..{$set: {viewCounter: 10000}}) ==> updates properly, and possibly adds the set variable.
+D - deleteOne() ==> deletes one row, the first found(by _id) with the same syntax as find()
+    deleteMany() ==> deletes all found
+    remove() ==> Same as above
+
+
+    npm init -y
+    npm i mongodb
+    
+remember to run db or i wont work.
