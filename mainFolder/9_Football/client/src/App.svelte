@@ -4,7 +4,7 @@
 
 	let players;
 	onMount(async ()=> { // calls this function when the component mounts/loads
-		const response = await fetch("/players") // remember $, can apply $baseURL + /players if we don't want do deal with cors. Remember to import cors in backend for this to work.
+		const response = await fetch($baseURL+"/players") // remember $, can apply $baseURL + /players if we don't want do deal with cors. Remember to import cors in backend for this to work.
 		const {data} = await response.json()
 		players = data
 	})
